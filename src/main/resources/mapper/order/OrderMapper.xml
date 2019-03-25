@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.system.cakedemo.order.mapper.OrderMapper">
+  <select id="orderList" resultType="map">
+    select * from order_detail
+  </select>
+  <insert id="saveorder" parameterType="map">
+    insert into order_detail (
+        product_id,
+        product_name,
+        product_price,
+        product_quantity,
+        product_icon,
+        master_address,
+        master_phone,
+        master_name,
+        create_time
+) VALUES (
+        #{product_id},
+        #{product_name},
+        #{product_price},
+        #{product_quantity},
+        #{product_icon},
+        #{master_address},
+        #{master_phone},
+        #{master_name},
+        now()
+)
+  </insert>
+</mapper>
